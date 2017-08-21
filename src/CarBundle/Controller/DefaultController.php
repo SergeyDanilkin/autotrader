@@ -8,10 +8,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/our-cars", name="offer")
      */
     public function indexAction()
     {
-        return $this->render('CarBundle:Default:index.html.twig');
+        $cars = [
+            ['make' => 'BMW', 'name' => 'X1']
+        ];
+        return $this->render('CarBundle:Default:index.html.twig',['cars' => $cars]);
     }
 }
