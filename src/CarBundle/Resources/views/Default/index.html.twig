@@ -2,15 +2,24 @@
 
 {% block body %}
     <h1>Our offer</h1>
+
+    <div class="pull-right">
+        {{ form_start(form, {attr: { class: 'form-inline'}}) }}
+        {{ form_widget(form.search, { attr: {placeholder: 'search'}}) }}
+        {{ form_errors(form.search) }}
+        {{ form_end(form) }}
+    </div>
     <table class="table">
         <tr>
             <td>Make</td>
             <td>Name</td>
+            <td>Actions</td>
         </tr>
         {% for car in cars %}
             <tr>
-                <td>{{ car.make }}</td>
-                <td>{{ car.name }}</td>
+                <td>{{ car.make.name }}</td>
+                <td>{{ car.model.name }}</td>
+                <td><a href="{{ path('show_car', {'id': car.id}) }}">Show details</a></td>
             </tr>
         {% endfor %}
     </table>
