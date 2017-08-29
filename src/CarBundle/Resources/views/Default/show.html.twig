@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{ car.model.name }}</h1>
+    <h3>Maker: {{ car.make.name }}</h3>
+    <p>{{ car.description }}</p>
+    <table class="table">
+        <tr>
+            <td>Year</td><td>{{ car.year }}</td>
+        </tr>
+        <tr>
+            <td>Price</td><td>{{ car.price }}</td>
+        </tr>
+        <tr>
+            <td>Navigation</td><td>
+                {% if car.navigation %}
+                    true
+                {% else %}
+                    false
+                {% endif %}
+                </td>
+        </tr>
+    </table>
+    <a href="{{ path('offer') }}">Back</a>
+{% endblock %}
